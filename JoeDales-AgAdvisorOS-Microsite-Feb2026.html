@@ -52,6 +52,7 @@
             right: 0;
             z-index: 1000;
             background: rgba(10, 13, 20, 0.9);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 1rem 2rem;
@@ -1397,6 +1398,138 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Vision Quote */
+        .vision-quote {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 2rem 3rem;
+            font-size: 1.375rem;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--text-secondary);
+            border-left: 4px solid var(--accent);
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.05) 0%, transparent 100%);
+            border-radius: 0 12px 12px 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .vision-quote {
+                font-size: 1.125rem;
+                padding: 1.5rem 2rem;
+                margin: 3rem 1rem 0;
+            }
+        }
+
+        /* Module Impact Stats */
+        .module-impact {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .impact-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .how-it-works-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .core-loop {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .loop-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .loop-step-box {
+            padding: 0.875rem 1.25rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            min-width: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .loop-step-box.human-step {
+            border-color: rgba(245, 158, 11, 0.4);
+            background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(245, 158, 11, 0.05) 100%);
+        }
+
+        .loop-step:hover .loop-step-box {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .loop-step-label {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .loop-arrow {
+            color: var(--accent);
+            font-size: 1.25rem;
+            opacity: 0.6;
+        }
+
+        .how-it-works-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .core-loop {
+                gap: 0.75rem 0.25rem;
+            }
+            .loop-step-box {
+                padding: 0.625rem 0.875rem;
+                font-size: 0.75rem;
+                min-width: 80px;
+            }
+            .loop-arrow {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1491,7 +1624,48 @@
                 <p>Built for Canadian financial services. PIPEDA-compliant architecture with complete audit trails from day one.</p>
             </div>
         </div>
+
+        <blockquote class="vision-quote reveal">
+            "We're not building an AI that writes notes. We're building a system of record that happens to capture conversations—and gives advisors their time back."
+        </blockquote>
     </section>
+
+    <!-- How It Works Section -->
+    <div class="how-it-works reveal">
+        <div class="how-it-works-title">The Core Pattern</div>
+        <div class="core-loop">
+            <div class="loop-step">
+                <div class="loop-step-box">CAPTURE</div>
+                <span class="loop-step-label">Voice</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+                <div class="loop-step-box">PROCESS</div>
+                <span class="loop-step-label">AI</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+                <div class="loop-step-box">DRAFT</div>
+                <span class="loop-step-label">AI</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+                <div class="loop-step-box human-step">APPROVE</div>
+                <span class="loop-step-label">Human</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+                <div class="loop-step-box">EXECUTE</div>
+                <span class="loop-step-label">System</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+                <div class="loop-step-box">AUDIT</div>
+                <span class="loop-step-label">Logged</span>
+            </div>
+        </div>
+        <p class="how-it-works-subtitle">AI does the heavy lifting. Humans maintain control.</p>
+    </div>
 
     <!-- Founder Section -->
     <section id="founder">
@@ -1527,7 +1701,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
-                        <span>Built 2 production SaaS platforms</span>
+                        <span>Built a production AI-native SaaS platform</span>
                     </div>
                     <div class="highlight-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1616,6 +1790,10 @@
                         <div class="module-status">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                             PRD Complete • Development Q1 2026
+                        </div>
+                        <div class="module-impact">
+                            <span class="impact-number">15-20</span>
+                            <span class="impact-label">hours/week saved per advisor</span>
                         </div>
                     </div>
                     <div class="workflow-diagram" id="crm-workflow">
@@ -1726,6 +1904,10 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
                             Backend Production Ready • 125 Tests Passing
                         </div>
+                        <div class="module-impact">
+                            <span class="impact-number">5-8</span>
+                            <span class="impact-label">hours saved per appraisal</span>
+                        </div>
                     </div>
                     <div class="workflow-diagram" id="appraisal-workflow">
                         <div class="workflow-canvas">
@@ -1786,6 +1968,10 @@
                         <div class="module-status planned">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                             Architecture Planned • Phase 3 Development
+                        </div>
+                        <div class="module-impact">
+                            <span class="impact-number">3-4</span>
+                            <span class="impact-label">hours saved per application</span>
                         </div>
                     </div>
                     <div class="workflow-diagram" id="credit-workflow">
@@ -1876,8 +2062,8 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     Market Size
                 </h3>
-                <p>Ontario agricultural lending is a multi-billion dollar market. Farm Credit Canada alone has $47B+ in assets. Banks, credit unions, and farm lending cooperatives all need advisor efficiency tools.</p>
-                <div class="market-stat">$47B+</div>
+                <p>Canadian farm debt now exceeds $167 billion. Farm Credit Canada alone holds $47B+ in assets. Banks, credit unions, and farm lending cooperatives across Canada all need advisor efficiency tools.</p>
+                <div class="market-stat">$167B+</div>
             </div>
             <div class="market-card">
                 <h3>
